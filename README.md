@@ -4,6 +4,8 @@ Planned stack:
 Frontend: ReactJS (https://reactjs.org)
 UI: Material-UI (https://material-ui.com/)
 
+<img src="./mockups/DefaultView.png" width='400' height='400'>
+
 ## Planned features:
 
 Home page with selection to view library by:
@@ -25,5 +27,5 @@ Todo:
 
 Add backend (NodeJS / Express) for:
 
-- Persisting to database (tbd)
+- Persisting to database
 - Authentication (Auth0)
