@@ -16,8 +16,8 @@ const MenuBar = () => {
   return (
     <AppBar position="static" className={classes.menuBarStyle}>
       <Toolbar>
-        <Button className={classes.buttonTextStyle}>All Books</Button>
-        <Button className={classes.buttonTextStyle}>Current Read</Button>
+        <Button className={classes.buttonTextStyle}>All</Button>
+        <Button className={classes.buttonTextStyle}>Reading</Button>
         <Button className={classes.buttonTextStyle}>Favourites</Button>
         <Button className={classes.buttonTextStyle}>Loaned Out</Button>
       </Toolbar>

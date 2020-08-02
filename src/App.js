@@ -4,6 +4,7 @@ import { Grid } from '@material-ui/core';
 
 import TitleBar from './components/TitleBar';
 import MenuBar from './components/MenuBar';
+import EmptyDefault from './components/content/EmptyDefault';
 
 function App() {
   return (
@@ -17,7 +18,7 @@ function App() {
       <Grid item container>
         <Grid item xs={0} sm={2} />
         <Grid item xs={12} sm={8}>
-          Content
+          <EmptyDefault />
         </Grid>
         <Grid item xs={0} sm={2} />
       </Grid>
