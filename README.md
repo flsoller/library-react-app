@@ -1,8 +1,9 @@
 ## A project to keep track of and manage your book library.
 
-Planned stack:
-Frontend: ReactJS (https://reactjs.org)
-UI: Material-UI (https://material-ui.com/)
+Stack:
+
+- Frontend: ReactJS (https://reactjs.org)
+- UI: Material-UI (https://material-ui.com/), Styled-Components (https://styled-components.com)
 
 <img src="./mockups/DefaultView.png" width='600' height='427'>
 
@@ -17,11 +18,11 @@ Home page with selection to view library by:
 
 Todo:
 
-1. Wireframe / Layout
-2. Define containers and components
-3. Build home page
-4. Open library by view
-5. Add new book
+- [x] Wireframe / Layout
+- [ ] Define containers and components
+- [x] Build home page
+- [ ] Open library by view
+- [ ] Add new book
 
 ## Future versions:
 
