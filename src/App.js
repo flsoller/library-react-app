@@ -1,3 +1,5 @@
+// App component. All data currently static
+
 import React from 'react';
 
 import { Grid } from '@material-ui/core';
@@ -6,7 +8,9 @@ import TitleBar from './components/app-bars/TitleBar';
 import MenuBar from './components/app-bars/MenuBar';
 import ContentHolder from './components/content/ContentHolder';
 
+// Component
 function App() {
+  // JSX
   return (
     <Grid container direction="column">
       <Grid item>
