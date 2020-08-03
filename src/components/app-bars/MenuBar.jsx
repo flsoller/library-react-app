@@ -1,7 +1,10 @@
+// Holds menu bar items.
+
 import React from 'react';
 import { AppBar, Toolbar, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
 
+// Material-UI styling hook.
 const useStyles = makeStyles(() => ({
   menuBarStyle: {
     backgroundColor: '#6159E5',
@@ -11,8 +14,11 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+// Component
 const MenuBar = () => {
   const classes = useStyles();
+
+  //JSX
   return (
     <AppBar position="static" className={classes.menuBarStyle}>
       <Toolbar>

@@ -1,8 +1,11 @@
+// Component that shows when no cards are loaded.
+
 import React from 'react';
 import defaultBackground from '../../assets/defaultBackground.svg';
 import { Grid, Typography } from '@material-ui/core';
 import styled from 'styled-components';
 
+// Styled components, scales background image on smaller screen.
 const Image = styled.img`
   height: 350px;
   @media (max-width: 688px) {
@@ -10,7 +13,9 @@ const Image = styled.img`
   }
 `;
 
+// Component. TODO: find better way to center background image, instead of minHeight.
 const EmptyDefault = () => {
+  // JSX
   return (
     <Grid
       container
