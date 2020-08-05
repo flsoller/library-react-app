@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 });
 
 // Component
-function CardItem() {
+function CardItem({ bookTitle, bookPages, isFav, isLoaned }) {
   const classes = useStyles();
 
   //JSX
@@ -34,15 +34,15 @@ function CardItem() {
           Book Author
         </Typography>
         <Typography variant="h5" component="h2">
-          Book Title
+          {bookTitle}
         </Typography>
         <Typography className={classes.pos} color="textSecondary">
-          Page: 0
+          Pages: {bookPages}
         </Typography>
         <Typography variant="body2" component="p">
-          Favourite: Yes
+          Favourite: {isFav ? 'Yes' : 'No'}
           <br />
-          Loaned Out: No
+          Loaned Out: {isLoaned ? 'Yes' : 'No'}
         </Typography>
       </CardContent>
       <CardActions>

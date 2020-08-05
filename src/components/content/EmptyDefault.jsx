@@ -25,7 +25,7 @@ const EmptyDefault = () => {
       justify="center"
       style={{ minHeight: '75vh' }}
     >
-      <Typography>Select your category from above.</Typography>
+      <Typography>Start to add books to your library.</Typography>
       <Image src={defaultBackground} alt="Default background." />
     </Grid>
   );
