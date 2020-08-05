@@ -19,10 +19,34 @@ function ContentHolder() {
 
   // React useState hook.
   const [books, setBooks] = useState([
-    { title: 'BookTitle', pages: 300, key: Math.random() },
-    { title: 'BookTitle', pages: 300, key: Math.random() },
-    { title: 'BookTitle', pages: 300, key: Math.random() },
-    { title: 'BookTitle', pages: 300, key: Math.random() },
+    {
+      title: 'BookTitleOne',
+      pages: 301,
+      isFav: false,
+      isLoaned: false,
+      key: Math.random(),
+    },
+    {
+      title: 'BookTitleTwo',
+      pages: 302,
+      isFav: false,
+      isLoaned: false,
+      key: Math.random(),
+    },
+    {
+      title: 'BookTitleThree',
+      pages: 303,
+      isFav: true,
+      isLoaned: true,
+      key: Math.random(),
+    },
+    {
+      title: 'BookTitleFour',
+      pages: 304,
+      isFav: false,
+      isLoaned: false,
+      key: Math.random(),
+    },
   ]);
 
   // Preparation for updating state. TODO: Make dynamic.
@@ -40,7 +64,12 @@ function ContentHolder() {
   // Display all books from state.
   const renderBooks = books.map((book) => (
     <Grid item xs={12} sm={6} md={4} key={book.key}>
-      <CardItem />
+      <CardItem
+        bookTitle={book.title}
+        bookPages={book.pages}
+        isFav={book.isFav}
+        isLoaned={book.isLoaned}
+      />
     </Grid>
   ));
 
