@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 });
 
 // Component
-function CardItem({ bookTitle, bookPages, isFav, isLoaned }) {
+function CardItem({ bookTitle, bookAuthor, bookPages, isFav, isLoaned }) {
   const classes = useStyles();
 
   //JSX
@@ -31,7 +31,7 @@ function CardItem({ bookTitle, bookPages, isFav, isLoaned }) {
           color="textSecondary"
           gutterBottom
         >
-          Book Author
+          {bookAuthor}
         </Typography>
         <Typography variant="h5" component="h2">
           {bookTitle}
