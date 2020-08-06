@@ -4,11 +4,16 @@ import React, { useState } from 'react';
 
 import CardItem from './CardItem';
 import { Grid, makeStyles, Button } from '@material-ui/core';
+import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
+import AddBookModal from './AddBookModal';
 
 // Material-UI styling hook.
 const useStyles = makeStyles({
   topMargin: {
     marginTop: 12,
+  },
+  buttonText: {
+    color: '#6159E5',
   },
 });
 
@@ -81,11 +86,29 @@ function ContentHolder() {
     </Grid>
   ));
 
+  // Handle input from dialog
+  const handleInputDialog = (input) => (e) => {
+    setBooks([
+      ...books,
+      {
+        [input]: e.target.value,
+      },
+    ]);
+  };
+
   //JSX
   return (
     <Grid container spacing={2} className={classes.topMargin}>
       {renderBooks}
-      <Button onClick={addBook}>Add Book</Button>
+      <Grid item xs={12} sm={6} md={4}>
+        <Button onClick={addBook} className={classes.buttonText}>
+          Add Book
+          <LibraryAddIcon />
+        </Button>
+      </Grid>
+      <Grid item>
+        <AddBookModal handleInputDialog={handleInputDialog} />
+      </Grid>
     </Grid>
   );
 }
