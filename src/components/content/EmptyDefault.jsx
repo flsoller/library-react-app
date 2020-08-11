@@ -23,7 +23,7 @@ const EmptyDefault = () => {
       spacing={0}
       alignItems="center"
       justify="center"
-      style={{ minHeight: '75vh' }}
+      style={{ minHeight: '70vh' }}
     >
       <Typography>Start to add books to your library.</Typography>
       <Image src={defaultBackground} alt="Default background." />

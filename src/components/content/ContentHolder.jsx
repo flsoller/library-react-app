@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import CardItem from './CardItem';
 import { Grid, makeStyles } from '@material-ui/core';
 import AddBookModal from './AddBookModal';
+import EmptyDefault from './EmptyDefault';
 
 // Material-UI styling hook.
 const useStyles = makeStyles({
@@ -23,38 +24,23 @@ function ContentHolder() {
 
   // React useState hook.
   const [books, setBooks] = useState([
-    {
-      title: 'BookTitleOne',
-      author: 'AuthorOne',
-      pages: 301,
-      isFav: false,
-      isLoaned: false,
-      key: Math.random(),
-    },
-    {
-      title: 'BookTitleTwo',
-      author: 'AuthorTwo',
-      pages: 302,
-      isFav: false,
-      isLoaned: false,
-      key: Math.random(),
-    },
-    {
-      title: 'BookTitleThree',
-      author: 'AuthorThree',
-      pages: 303,
-      isFav: true,
-      isLoaned: true,
-      key: Math.random(),
-    },
-    {
-      title: 'BookTitleFour',
-      author: 'AuthorFour',
-      pages: 304,
-      isFav: false,
-      isLoaned: false,
-      key: Math.random(),
-    },
+    // DUMMY DATA FOR TESTING
+    // {
+    //   title: 'BookTitleOne',
+    //   author: 'AuthorOne',
+    //   pages: 301,
+    //   isFav: false,
+    //   isLoaned: false,
+    //   key: Math.random(),
+    // },
+    // {
+    //   title: 'BookTitleTwo',
+    //   author: 'AuthorTwo',
+    //   pages: 302,
+    //   isFav: false,
+    //   isLoaned: false,
+    //   key: Math.random(),
+    // },
   ]);
 
   // Display all books from state.
@@ -70,6 +56,11 @@ function ContentHolder() {
     </Grid>
   ));
 
+  // Display default screen when no books in library.
+  const noBooks = () => {
+    return books.length === 0 ? <EmptyDefault /> : null;
+  };
+
   // Handle input from dialog
   const handleInputDialog = (input) => {
     setBooks([...books, input]);
@@ -79,10 +70,11 @@ function ContentHolder() {
   //JSX
   return (
     <Grid container spacing={2} className={classes.topMargin}>
-      {renderBooks}
-      <Grid item xs={12}>
+      <Grid container justify="center">
         <AddBookModal handleInputDialog={handleInputDialog} />
       </Grid>
+      {noBooks()}
+      {renderBooks}
     </Grid>
   );
 }
