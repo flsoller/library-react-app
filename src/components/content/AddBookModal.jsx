@@ -70,6 +70,7 @@ const AddBookModal = ({ handleInputDialog }) => {
             label="Book Author"
             type="text"
             fullWidth
+            autoComplete="off"
             onChange={handleChange}
             value={book.author}
           />
@@ -80,6 +81,7 @@ const AddBookModal = ({ handleInputDialog }) => {
             label="Book Title"
             type="text"
             fullWidth
+            autoComplete="off"
             onChange={handleChange}
             value={book.title}
           />
@@ -90,6 +92,7 @@ const AddBookModal = ({ handleInputDialog }) => {
             label="# Pages"
             type="text"
             fullWidth
+            autoComplete="off"
             onChange={handleChange}
             value={book.pages}
           />
