@@ -35,6 +35,12 @@ const AddBookModal = ({ handleInputDialog }) => {
     setBook({ ...book, [e.target.id]: e.target.value });
   };
 
+  // Combine handleClose and handleInputDialog. Two actions needed for onClick.
+  const dialogHandler = () => {
+    handleClose();
+    handleInputDialog(book);
+  };
+
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -81,7 +87,7 @@ const AddBookModal = ({ handleInputDialog }) => {
           <Button onClick={handleClose} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={dialogHandler} color="primary">
             Add Book
           </Button>
         </DialogActions>

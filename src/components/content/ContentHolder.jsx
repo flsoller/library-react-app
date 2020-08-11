@@ -3,8 +3,7 @@
 import React, { useState } from 'react';
 
 import CardItem from './CardItem';
-import { Grid, makeStyles, Button } from '@material-ui/core';
-import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
+import { Grid, makeStyles } from '@material-ui/core';
 import AddBookModal from './AddBookModal';
 
 // Material-UI styling hook.
@@ -58,21 +57,6 @@ function ContentHolder() {
     },
   ]);
 
-  // Preparation for updating state. TODO: Make dynamic.
-  const addBook = () => {
-    setBooks([
-      ...books,
-      {
-        title: 'NewBook',
-        author: 'NewAuthor',
-        pages: 400,
-        isFav: true,
-        isLoaned: false,
-        key: Math.random(),
-      },
-    ]);
-  };
-
   // Display all books from state.
   const renderBooks = books.map((book) => (
     <Grid item xs={12} sm={6} md={4} key={book.key}>
@@ -87,27 +71,17 @@ function ContentHolder() {
   ));
 
   // Handle input from dialog
-  const handleInputDialog = (input) => (e) => {
-    setBooks([
-      ...books,
-      {
-        [input]: e.target.value,
-      },
-    ]);
+  const handleInputDialog = (input) => {
+    setBooks([...books, input]);
+    console.log(input);
   };
 
   //JSX
   return (
     <Grid container spacing={2} className={classes.topMargin}>
       {renderBooks}
-      <Grid item xs={12} sm={6} md={4}>
-        <Button onClick={addBook} className={classes.buttonText}>
-          Add Book
-          <LibraryAddIcon />
-        </Button>
-      </Grid>
-      <Grid item>
-        <AddBookModal handleInputDialog={handleInputDialog} />
+      <Grid item xs={12}>
+        <AddBookModal handleInputDialog={(input) => handleInputDialog(input)} />
       </Grid>
     </Grid>
   );
