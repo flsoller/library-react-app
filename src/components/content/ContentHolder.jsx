@@ -81,7 +81,7 @@ function ContentHolder() {
     <Grid container spacing={2} className={classes.topMargin}>
       {renderBooks}
       <Grid item xs={12}>
-        <AddBookModal handleInputDialog={(input) => handleInputDialog(input)} />
+        <AddBookModal handleInputDialog={handleInputDialog} />
       </Grid>
     </Grid>
   );

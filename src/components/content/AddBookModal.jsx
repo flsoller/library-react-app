@@ -24,7 +24,7 @@ const AddBookModal = ({ handleInputDialog }) => {
   const [book, setBook] = useState({
     title: '',
     author: '',
-    pages: 0,
+    pages: '',
     isFav: false,
     isLoaned: false,
     key: Math.random(),
@@ -39,6 +39,14 @@ const AddBookModal = ({ handleInputDialog }) => {
   const dialogHandler = () => {
     handleClose();
     handleInputDialog(book);
+    setBook({
+      title: '',
+      author: '',
+      pages: '',
+      isFav: false,
+      isLoaned: false,
+      key: Math.random(),
+    });
   };
 
   return (
@@ -63,6 +71,7 @@ const AddBookModal = ({ handleInputDialog }) => {
             type="text"
             fullWidth
             onChange={handleChange}
+            value={book.author}
           />
           <TextField
             autoFocus
@@ -72,6 +81,7 @@ const AddBookModal = ({ handleInputDialog }) => {
             type="text"
             fullWidth
             onChange={handleChange}
+            value={book.title}
           />
           <TextField
             autoFocus
@@ -81,6 +91,7 @@ const AddBookModal = ({ handleInputDialog }) => {
             type="text"
             fullWidth
             onChange={handleChange}
+            value={book.pages}
           />
         </DialogContent>
         <DialogActions>
