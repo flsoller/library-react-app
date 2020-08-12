@@ -19,14 +19,16 @@ Home page with selection to view library by:
 Todo:
 
 - [x] Wireframe / Layout
-- [ ] Define containers and components
+- [x] Define containers and components
 - [x] Build home page
+- [x] Add new book
+- [ ] Extend 'AddBook' with input for status (isLoaned, isFav, isReading)
 - [ ] Open library by view
-- [ ] Add new book
+- [ ] Add functionality for deleting books
 
 ## Future versions:
 
-Add backend (NodeJS / Express) for:
+Add backend for:
 
-- Persisting to database
+- Persisting to database or localStorage
 - Authentication (Auth0)
