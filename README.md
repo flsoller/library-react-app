@@ -22,7 +22,7 @@ Todo:
 - [x] Define containers and components
 - [x] Build home page
 - [x] Add new book
-- [ ] Extend 'AddBook' with input for status (isLoaned, isFav, isReading)
+- [x] Extend 'AddBook' with input for status (isLoaned, isFav, isReading)
 - [ ] Open library by view
 - [ ] Add functionality for deleting books
 
