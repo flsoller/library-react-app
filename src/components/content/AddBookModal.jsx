@@ -7,6 +7,9 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
+import FormGroup from '@material-ui/core/FormGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 
 const AddBookModal = ({ handleInputDialog }) => {
   // Open/Close for dialog.
@@ -27,12 +30,17 @@ const AddBookModal = ({ handleInputDialog }) => {
     pages: '',
     isFav: false,
     isLoaned: false,
+    isReading: false,
     key: Math.random(),
   });
 
   // Update state from text field inputs
   const handleChange = (e) => {
     setBook({ ...book, [e.target.id]: e.target.value });
+  };
+
+  const handleSwitch = (e) => {
+    setBook({ ...book, [e.target.name]: e.target.checked });
   };
 
   // Combine handleClose and handleInputDialog. Two actions needed for onClick.
@@ -45,6 +53,7 @@ const AddBookModal = ({ handleInputDialog }) => {
       pages: '',
       isFav: false,
       isLoaned: false,
+      isReading: false,
       key: Math.random(),
     });
   };
@@ -96,6 +105,44 @@ const AddBookModal = ({ handleInputDialog }) => {
             onChange={handleChange}
             value={book.pages}
           />
+          <FormGroup row>
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={book.isFav}
+                  onChange={handleSwitch}
+                  name="isFav"
+                  color="primary"
+                />
+              }
+              label="Favourite:"
+              labelPlacement="start"
+            />
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={book.isLoaned}
+                  onChange={handleSwitch}
+                  name="isLoaned"
+                  color="primary"
+                />
+              }
+              label="Loaned Out:"
+              labelPlacement="start"
+            />
+            <FormControlLabel
+              control={
+                <Switch
+                  checked={book.isReading}
+                  onChange={handleSwitch}
+                  name="isReading"
+                  color="primary"
+                />
+              }
+              label="Currently Reading:"
+              labelPlacement="start"
+            />
+          </FormGroup>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">

@@ -52,6 +52,7 @@ function ContentHolder() {
         bookPages={book.pages}
         isFav={book.isFav}
         isLoaned={book.isLoaned}
+        isReading={book.isReading}
       />
     </Grid>
   ));
@@ -64,7 +65,6 @@ function ContentHolder() {
   // Handle input from dialog
   const handleInputDialog = (input) => {
     setBooks([...books, input]);
-    console.log(input);
   };
 
   //JSX
