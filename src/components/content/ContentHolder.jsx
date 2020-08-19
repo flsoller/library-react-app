@@ -1,5 +1,6 @@
 // Maintains content views
 import React from 'react';
+import { bookStorage } from '../../App';
 
 import CardItem from './CardItem';
 import { Grid, makeStyles } from '@material-ui/core';
@@ -43,6 +44,7 @@ const ContentHolder = ({ books, setBooks }) => {
   // Handle input from dialog
   const handleInputDialog = (input) => {
     setBooks([...books, input]);
+    bookStorage.push(input);
   };
 
   //JSX

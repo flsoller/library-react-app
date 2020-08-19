@@ -10,42 +10,42 @@ import ContentHolder from './components/content/ContentHolder';
 
 // DUMMY DATA
 export let bookStorage = [
-  {
-    title: 'BookIsNone',
-    author: 'AuthorOne',
-    pages: 301,
-    isFav: false,
-    isLoaned: false,
-    isReading: false,
-    key: Math.random(),
-  },
-  {
-    title: 'BookIsFav',
-    author: 'AuthorTwo',
-    pages: 302,
-    isFav: false,
-    isLoaned: false,
-    isReading: false,
-    key: Math.random(),
-  },
-  {
-    title: 'BookIsLoaned',
-    author: 'AuthorTwo',
-    pages: 302,
-    isFav: false,
-    isLoaned: true,
-    isReading: false,
-    key: Math.random(),
-  },
-  {
-    title: 'BookIsReading',
-    author: 'AuthorTwo',
-    pages: 302,
-    isFav: false,
-    isLoaned: false,
-    isReading: true,
-    key: Math.random(),
-  },
+  // {
+  //   title: 'BookIsNone',
+  //   author: 'AuthorOne',
+  //   pages: 301,
+  //   isFav: false,
+  //   isLoaned: false,
+  //   isReading: false,
+  //   key: Math.random(),
+  // },
+  // {
+  //   title: 'BookIsFav',
+  //   author: 'AuthorTwo',
+  //   pages: 302,
+  //   isFav: false,
+  //   isLoaned: false,
+  //   isReading: false,
+  //   key: Math.random(),
+  // },
+  // {
+  //   title: 'BookIsLoaned',
+  //   author: 'AuthorTwo',
+  //   pages: 302,
+  //   isFav: false,
+  //   isLoaned: true,
+  //   isReading: false,
+  //   key: Math.random(),
+  // },
+  // {
+  //   title: 'BookIsReading',
+  //   author: 'AuthorTwo',
+  //   pages: 302,
+  //   isFav: false,
+  //   isLoaned: false,
+  //   isReading: true,
+  //   key: Math.random(),
+  // },
 ];
 
 // Component
