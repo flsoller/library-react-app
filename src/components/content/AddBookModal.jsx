@@ -99,7 +99,8 @@ const AddBookModal = ({ handleInputDialog }) => {
             margin="dense"
             id="pages"
             label="# Pages"
-            type="text"
+            type="number"
+            inputProps={{ inputmode: 'numeric', pattern: '[0-9]*' }}
             fullWidth
             autoComplete="off"
             onChange={handleChange}
@@ -113,6 +114,7 @@ const AddBookModal = ({ handleInputDialog }) => {
                   onChange={handleSwitch}
                   name="isFav"
                   color="primary"
+                  size="small"
                 />
               }
               label="Favourite:"
@@ -125,6 +127,7 @@ const AddBookModal = ({ handleInputDialog }) => {
                   onChange={handleSwitch}
                   name="isLoaned"
                   color="primary"
+                  size="small"
                 />
               }
               label="Loaned Out:"
@@ -137,6 +140,7 @@ const AddBookModal = ({ handleInputDialog }) => {
                   onChange={handleSwitch}
                   name="isReading"
                   color="primary"
+                  size="small"
                 />
               }
               label="Currently Reading:"
