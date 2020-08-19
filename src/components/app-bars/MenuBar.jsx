@@ -15,17 +15,30 @@ const useStyles = makeStyles(() => ({
 }));
 
 // Component
-const MenuBar = () => {
+const MenuBar = ({
+  displayIsFav,
+  displayIsReading,
+  displayIsLoaned,
+  displayAllBooks,
+}) => {
   const classes = useStyles();
 
   //JSX
   return (
     <AppBar position="static" className={classes.menuBarStyle}>
       <Toolbar>
-        <Button className={classes.buttonTextStyle}>All</Button>
-        <Button className={classes.buttonTextStyle}>Reading</Button>
-        <Button className={classes.buttonTextStyle}>Favourites</Button>
-        <Button className={classes.buttonTextStyle}>Loaned Out</Button>
+        <Button className={classes.buttonTextStyle} onClick={displayAllBooks}>
+          All
+        </Button>
+        <Button className={classes.buttonTextStyle} onClick={displayIsReading}>
+          Reading
+        </Button>
+        <Button className={classes.buttonTextStyle} onClick={displayIsFav}>
+          Favourites
+        </Button>
+        <Button className={classes.buttonTextStyle} onClick={displayIsLoaned}>
+          Loaned Out
+        </Button>
       </Toolbar>
     </AppBar>
   );

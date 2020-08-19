@@ -56,7 +56,7 @@ function CardItem({
       </CardContent>
       <CardActions>
         <Button disabled size="small">
-          Details
+          Delete
         </Button>
       </CardActions>
     </Card>
