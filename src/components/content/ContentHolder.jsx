@@ -1,6 +1,5 @@
-// Maintains content. Currently placeholder data / hard coded
-
-import React, { useState } from 'react';
+// Maintains content views
+import React from 'react';
 
 import CardItem from './CardItem';
 import { Grid, makeStyles } from '@material-ui/core';
@@ -18,30 +17,9 @@ const useStyles = makeStyles({
 });
 
 //Component
-function ContentHolder() {
+const ContentHolder = ({ books, setBooks }) => {
   // Material UI styles
   const classes = useStyles();
-
-  // React useState hook.
-  const [books, setBooks] = useState([
-    // DUMMY DATA FOR TESTING
-    // {
-    //   title: 'BookTitleOne',
-    //   author: 'AuthorOne',
-    //   pages: 301,
-    //   isFav: false,
-    //   isLoaned: false,
-    //   key: Math.random(),
-    // },
-    // {
-    //   title: 'BookTitleTwo',
-    //   author: 'AuthorTwo',
-    //   pages: 302,
-    //   isFav: false,
-    //   isLoaned: false,
-    //   key: Math.random(),
-    // },
-  ]);
 
   // Display all books from state.
   const renderBooks = books.map((book) => (
@@ -77,6 +55,6 @@ function ContentHolder() {
       {renderBooks}
     </Grid>
   );
-}
+};
 
 export default ContentHolder;
