@@ -23,12 +23,11 @@ Todo:
 - [x] Build home page
 - [x] Add new book
 - [x] Extend 'AddBook' with input for status (isLoaned, isFav, isReading)
-- [ ] Open library by view
+- [x] Open library by view
 - [ ] Add functionality for deleting books
+- [ ] Add ability to change read/fav/loaned status after creation
 
-## Future versions:
-
-Add backend for:
+## Possible extensions:
 
 - Persisting to database or localStorage
-- Authentication (Auth0)
+- Authentication (Auth0) / Login
