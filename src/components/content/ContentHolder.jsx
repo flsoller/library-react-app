@@ -45,6 +45,7 @@ const ContentHolder = ({ books, setBooks }) => {
   const handleInputDialog = (input) => {
     setBooks([...books, input]);
     bookStorage.push(input);
+    localStorage.setItem('books', JSON.stringify(bookStorage));
   };
 
   //JSX

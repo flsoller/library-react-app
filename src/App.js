@@ -8,45 +8,14 @@ import TitleBar from './components/app-bars/TitleBar';
 import MenuBar from './components/app-bars/MenuBar';
 import ContentHolder from './components/content/ContentHolder';
 
-// DUMMY DATA
-export let bookStorage = [
-  // {
-  //   title: 'BookIsNone',
-  //   author: 'AuthorOne',
-  //   pages: 301,
-  //   isFav: false,
-  //   isLoaned: false,
-  //   isReading: false,
-  //   key: Math.random(),
-  // },
-  // {
-  //   title: 'BookIsFav',
-  //   author: 'AuthorTwo',
-  //   pages: 302,
-  //   isFav: false,
-  //   isLoaned: false,
-  //   isReading: false,
-  //   key: Math.random(),
-  // },
-  // {
-  //   title: 'BookIsLoaned',
-  //   author: 'AuthorTwo',
-  //   pages: 302,
-  //   isFav: false,
-  //   isLoaned: true,
-  //   isReading: false,
-  //   key: Math.random(),
-  // },
-  // {
-  //   title: 'BookIsReading',
-  //   author: 'AuthorTwo',
-  //   pages: 302,
-  //   isFav: false,
-  //   isLoaned: false,
-  //   isReading: true,
-  //   key: Math.random(),
-  // },
-];
+// Local storage
+export let bookStorage;
+if (localStorage.getItem('books') === null) {
+  bookStorage = [];
+} else {
+  bookStorage = JSON.parse(localStorage.getItem('books'));
+}
+// export let bookStorage = [];
 
 // Component
 function App() {
