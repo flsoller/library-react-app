@@ -45,17 +45,21 @@ const AddBookModal = ({ handleInputDialog }) => {
 
   // Combine handleClose and handleInputDialog. Two actions needed for onClick.
   const dialogHandler = () => {
-    handleClose();
-    handleInputDialog(book);
-    setBook({
-      title: '',
-      author: '',
-      pages: '',
-      isFav: false,
-      isLoaned: false,
-      isReading: false,
-      key: Math.random(),
-    });
+    if (book.title === '' || book.author === '' || book.pages === '') {
+      alert('Please fill out all fields in the form');
+    } else {
+      handleClose();
+      handleInputDialog(book);
+      setBook({
+        title: '',
+        author: '',
+        pages: '',
+        isFav: false,
+        isLoaned: false,
+        isReading: false,
+        key: Math.random(),
+      });
+    }
   };
 
   return (
