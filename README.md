@@ -26,8 +26,8 @@ Todo:
 - [x] Open library by view
 - [ ] Add functionality for deleting books
 - [ ] Add ability to change read/fav/loaned status after creation
+- [ ] Add support for localStorage
 
 ## Possible extensions:
 
-- Persisting to database or localStorage
 - Authentication (Auth0) / Login
