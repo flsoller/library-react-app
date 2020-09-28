@@ -24,9 +24,9 @@ Todo:
 - [x] Add new book
 - [x] Extend 'AddBook' with input for status (isLoaned, isFav, isReading)
 - [x] Open library by view
-- [ ] Add functionality for deleting books
-- [ ] Add ability to change read/fav/loaned status after creation
+- [x] Add functionality for deleting books
 - [ ] Add support for localStorage
+- [ ] Add ability to change read/fav/loaned status after creation
 
 ## Possible extensions:
 
