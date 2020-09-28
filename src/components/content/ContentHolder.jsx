@@ -22,6 +22,14 @@ const ContentHolder = ({ books, setBooks }) => {
   // Material UI styles
   const classes = useStyles();
 
+  // Handle book deletion.
+  const handleDelete = (bookTitle) => {
+    const newArray = [...books].filter((book) => {
+      return book.title !== bookTitle ? book : null;
+    });
+    setBooks(newArray);
+  };
+
   // Display all books from state.
   const renderBooks = books.map((book) => (
     <Grid item xs={12} sm={6} md={4} key={book.key}>
@@ -32,6 +40,7 @@ const ContentHolder = ({ books, setBooks }) => {
         isFav={book.isFav}
         isLoaned={book.isLoaned}
         isReading={book.isReading}
+        deleteBook={handleDelete}
       />
     </Grid>
   ));

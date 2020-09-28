@@ -26,6 +26,7 @@ function CardItem({
   isFav,
   isLoaned,
   isReading,
+  deleteBook,
 }) {
   const classes = useStyles();
 
@@ -55,7 +56,12 @@ function CardItem({
         </Typography>
       </CardContent>
       <CardActions>
-        <Button disabled size="small">
+        <Button
+          color="secondary"
+          variant="outlined"
+          size="small"
+          onClick={() => deleteBook(bookTitle)}
+        >
           Delete
         </Button>
       </CardActions>
