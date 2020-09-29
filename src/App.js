@@ -1,6 +1,6 @@
 // App component. All data currently static
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Grid } from '@material-ui/core';
 
@@ -8,18 +8,21 @@ import TitleBar from './components/app-bars/TitleBar';
 import MenuBar from './components/app-bars/MenuBar';
 import ContentHolder from './components/content/ContentHolder';
 
-// Local storage
-export let bookStorage;
-if (localStorage.getItem('books') === null) {
-  bookStorage = [];
-} else {
-  bookStorage = JSON.parse(localStorage.getItem('books'));
-}
-// export let bookStorage = [];
-
-// Component
 function App() {
-  // React useState hook.
+  // useState "bookStorage" for localstorage. Initialize on first render.
+  const [bookStorage, setBookStorage] = useState(() => {
+    const defaultValue = [];
+    const fromLocalStorage = JSON.parse(localStorage.getItem('books'));
+
+    return fromLocalStorage !== null ? fromLocalStorage : defaultValue;
+  });
+
+  // useEffect, keeps localStorage in synch when value of bookStorage changes.
+  useEffect(() => {
+    localStorage.setItem('books', JSON.stringify(bookStorage));
+  }, [bookStorage]);
+
+  // useState "books" for display.
   const [books, setBooks] = useState(bookStorage);
 
   // Display filtered books: isFav
@@ -68,7 +71,12 @@ function App() {
       <Grid item container>
         <Grid item xs={false} sm={2} />
         <Grid item xs={12} sm={8}>
-          <ContentHolder books={books} setBooks={setBooks} />
+          <ContentHolder
+            books={books}
+            setBooks={setBooks}
+            bookStorage={bookStorage}
+            setBookStorage={setBookStorage}
+          />
         </Grid>
         <Grid item xs={false} sm={2} />
       </Grid>
