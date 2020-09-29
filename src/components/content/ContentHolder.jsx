@@ -23,11 +23,17 @@ const ContentHolder = ({ books, setBooks, bookStorage, setBookStorage }) => {
 
   // Handle book deletion.
   const handleDelete = (bookTitle) => {
-    const newArray = [...bookStorage].filter((book) => {
+    // Delete book from bookStorage
+    const newBookStorage = [...bookStorage].filter((book) => {
       return book.title !== bookTitle ? book : null;
     });
-    setBooks(newArray);
-    setBookStorage(newArray);
+    setBookStorage(newBookStorage);
+
+    // Delete book from active View
+    const newBookView = [...books].filter((book) => {
+      return book.title !== bookTitle ? book : null;
+    });
+    setBooks(newBookView);
   };
 
   // Display all books from state.
