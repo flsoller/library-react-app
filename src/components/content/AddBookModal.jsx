@@ -88,7 +88,6 @@ const AddBookModal = ({ handleInputDialog }) => {
             value={book.author}
           />
           <TextField
-            autoFocus
             margin="dense"
             id="title"
             label="Book Title"
@@ -99,7 +98,6 @@ const AddBookModal = ({ handleInputDialog }) => {
             value={book.title}
           />
           <TextField
-            autoFocus
             margin="dense"
             id="pages"
             label="# Pages"
