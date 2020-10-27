@@ -10,7 +10,13 @@ const initialState = {
   library: fromLocalStorage,
 };
 
+// Create reducer
+const reducer = (state, action) => {
+  return state;
+};
+
 // Create store
-const store = createStore(initialState);
+const store = createStore(reducer, initialState);
+console.log(store.getState());
 
 export default store;
