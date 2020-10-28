@@ -1,22 +1,17 @@
-import { createStore } from 'redux';
+// Package imports
+import { createStore, combineReducers } from 'redux';
 
-// Get books from localStorage or empty array if false
-const fromLocalStorage = localStorage.getItem('books')
-  ? JSON.parse(localStorage.getItem('books'))
-  : [];
-
-// Define initial state
-const initialState = {
-  library: fromLocalStorage,
-};
+// File imports
+import { libraryReducer, viewReducer } from './reducers';
 
 // Create reducer
-const reducer = (state, action) => {
-  return state;
-};
+const reducer = combineReducers({
+  library: libraryReducer,
+  view: viewReducer,
+});
 
 // Create store
-const store = createStore(reducer, initialState);
+const store = createStore(reducer);
 console.log(store.getState());
 
 export default store;
