@@ -1,3 +1,5 @@
+import { LIBRARY_ADD_BOOK } from './constants';
+
 // Get books from localStorage or empty array if false
 const fromLocalStorage = localStorage.getItem('books')
   ? JSON.parse(localStorage.getItem('books'))
@@ -6,12 +8,25 @@ const fromLocalStorage = localStorage.getItem('books')
 // Define initial state
 const initialState = {
   library: fromLocalStorage,
+  view: fromLocalStorage,
 };
 
-export const libraryReducer = (state = initialState, action) => {
-  return state;
+// Reducer for library state changes
+export const libraryReducer = (state = initialState.library, action) => {
+  switch (action.type) {
+    case LIBRARY_ADD_BOOK:
+      const book = action.payload;
+      return {
+        ...state,
+        book,
+      };
+
+    default:
+      return state;
+  }
 };
 
-export const viewReducer = (state = initialState, action) => {
+// Reducer for search view state changes
+export const viewReducer = (state = initialState.view, action) => {
   return state;
 };
