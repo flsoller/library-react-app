@@ -1,4 +1,11 @@
+// Package imports
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+// Component imports
+import { addToLibrary } from '../../redux/actions';
+
+// UI component imports
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -12,6 +19,9 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
 const AddBookModal = ({ handleInputDialog }) => {
+  // Redux dispatch
+  const dispatch = useDispatch();
+
   // Open/Close for dialog.
   const [open, setOpen] = useState(false);
 
@@ -49,6 +59,7 @@ const AddBookModal = ({ handleInputDialog }) => {
       alert('Please fill out all fields in the form');
     } else {
       handleClose();
+      dispatch(addToLibrary(book));
       handleInputDialog(book);
       setBook({
         title: '',
