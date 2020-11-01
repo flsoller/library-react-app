@@ -16,10 +16,7 @@ export const libraryReducer = (state = initialState.library, action) => {
   switch (action.type) {
     case LIBRARY_ADD_BOOK:
       const book = action.payload;
-      return {
-        ...state,
-        book,
-      };
+      return [...state, book];
 
     default:
       return state;
