@@ -1,4 +1,10 @@
-import { LIBRARY_ADD_BOOK } from './constants';
+import {
+  LIBRARY_ADD_BOOK,
+  VIEW_SELECT_ALL,
+  VIEW_SELECT_LOANED,
+  VIEW_SELECT_READ,
+  VIEW_SELECT_FAV,
+} from './constants';
 
 // Get books from localStorage or empty array if false
 const fromLocalStorage = localStorage.getItem('books')
@@ -25,5 +31,26 @@ export const libraryReducer = (state = initialState.library, action) => {
 
 // Reducer for search view state changes
 export const viewReducer = (state = initialState.view, action) => {
-  return state;
+  switch (action.type) {
+    case VIEW_SELECT_ALL:
+      return [...state, fromLocalStorage];
+
+    case VIEW_SELECT_FAV:
+      return [...state].filter((book) => {
+        return book.isFav ? book : null;
+      });
+
+    case VIEW_SELECT_LOANED:
+      return [...state].filter((book) => {
+        return book.isLoaned ? book : null;
+      });
+
+    case VIEW_SELECT_READ:
+      return [...state].filter((book) => {
+        return book.isReading ? book : null;
+      });
+
+    default:
+      return state;
+  }
 };
