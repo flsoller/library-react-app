@@ -1,5 +1,6 @@
 // Maintains content views
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 import CardItem from './CardItem';
 import { Grid, makeStyles } from '@material-ui/core';
@@ -36,8 +37,11 @@ const ContentHolder = ({ books, setBooks, bookStorage, setBookStorage }) => {
     setBooks(newBookView);
   };
 
-  // Display all books from state.
-  const renderBooks = books.map((book) => (
+  // Load books from redux store
+  const bookView = useSelector((state) => state.view);
+
+  // Display all books from view state.
+  const renderBooks = bookView.map((book) => (
     <Grid item xs={12} sm={6} md={4} key={book.key}>
       <CardItem
         bookTitle={book.title}
