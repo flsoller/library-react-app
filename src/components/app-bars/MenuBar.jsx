@@ -1,8 +1,18 @@
 // Holds menu bar items.
 
+// Package imports
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { AppBar, Toolbar, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
+
+// Component imports
+import {
+  viewAllBooks,
+  viewFavBooks,
+  viewLoanedBooks,
+  viewReadBooks,
+} from '../../redux/actions';
 
 // Material-UI styling hook.
 const useStyles = makeStyles(() => ({
@@ -23,20 +33,33 @@ const MenuBar = ({
 }) => {
   const classes = useStyles();
 
+  const dispatch = useDispatch();
   //JSX
   return (
     <AppBar position="static" className={classes.menuBarStyle}>
       <Toolbar>
-        <Button className={classes.buttonTextStyle} onClick={displayAllBooks}>
+        <Button
+          className={classes.buttonTextStyle}
+          onClick={() => dispatch(viewAllBooks())}
+        >
           All
         </Button>
-        <Button className={classes.buttonTextStyle} onClick={displayIsReading}>
+        <Button
+          className={classes.buttonTextStyle}
+          onClick={() => dispatch(viewReadBooks())}
+        >
           Reading
         </Button>
-        <Button className={classes.buttonTextStyle} onClick={displayIsFav}>
+        <Button
+          className={classes.buttonTextStyle}
+          onClick={() => dispatch(viewFavBooks())}
+        >
           Favourites
         </Button>
-        <Button className={classes.buttonTextStyle} onClick={displayIsLoaned}>
+        <Button
+          className={classes.buttonTextStyle}
+          onClick={() => dispatch(viewLoanedBooks())}
+        >
           Loaned Out
         </Button>
       </Toolbar>
