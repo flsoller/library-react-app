@@ -31,22 +31,25 @@ export const libraryReducer = (state = initialState.library, action) => {
 
 // Reducer for search view state changes
 export const viewReducer = (state = initialState.view, action) => {
+  // Make entire library available for filtering
+  const library = action.payload;
+
   switch (action.type) {
     case VIEW_SELECT_ALL:
-      return [...state, fromLocalStorage];
+      return library;
 
     case VIEW_SELECT_FAV:
-      return [...state].filter((book) => {
+      return library.filter((book) => {
         return book.isFav ? book : null;
       });
 
     case VIEW_SELECT_LOANED:
-      return [...state].filter((book) => {
+      return library.filter((book) => {
         return book.isLoaned ? book : null;
       });
 
     case VIEW_SELECT_READ:
-      return [...state].filter((book) => {
+      return library.filter((book) => {
         return book.isReading ? book : null;
       });
 
