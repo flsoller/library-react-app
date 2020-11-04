@@ -1,3 +1,5 @@
+import store from './store';
+
 import {
   LIBRARY_ADD_BOOK,
   VIEW_SELECT_ALL,
@@ -16,20 +18,24 @@ export const addToLibrary = (book) => {
 export const viewAllBooks = () => {
   return {
     type: VIEW_SELECT_ALL,
+    payload: store.getState().library,
   };
 };
 export const viewLoanedBooks = () => {
   return {
     type: VIEW_SELECT_LOANED,
+    payload: store.getState().library,
   };
 };
 export const viewReadBooks = () => {
   return {
     type: VIEW_SELECT_READ,
+    payload: store.getState().library,
   };
 };
 export const viewFavBooks = () => {
   return {
     type: VIEW_SELECT_FAV,
+    payload: store.getState().library,
   };
 };
