@@ -1,5 +1,6 @@
 import {
   LIBRARY_ADD_BOOK,
+  LIBRARY_REMOVE_BOOK,
   VIEW_SELECT_ALL,
   VIEW_SELECT_LOANED,
   VIEW_SELECT_READ,
@@ -24,6 +25,11 @@ export const libraryReducer = (state = initialState.library, action) => {
       const book = action.payload;
       return [...state, book];
 
+    case LIBRARY_REMOVE_BOOK:
+      const bookTitle = action.payload;
+      return [...state].filter((book) => {
+        return book.title !== bookTitle ? book : null;
+      });
     default:
       return state;
   }
