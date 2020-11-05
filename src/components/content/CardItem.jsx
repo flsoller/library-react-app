@@ -1,6 +1,9 @@
 // Card component for each book card.
 
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { removeFromLibrary } from '../../redux/actions';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -26,10 +29,10 @@ function CardItem({
   isFav,
   isLoaned,
   isReading,
-  deleteBook,
 }) {
   const classes = useStyles();
 
+  const dispatch = useDispatch();
   //JSX
   return (
     <Card variant="outlined">
@@ -60,7 +63,7 @@ function CardItem({
           color="secondary"
           variant="outlined"
           size="small"
-          onClick={() => deleteBook(bookTitle)}
+          onClick={() => dispatch(removeFromLibrary(bookTitle))}
         >
           Delete
         </Button>
