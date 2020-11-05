@@ -2,6 +2,7 @@ import store from './store';
 
 import {
   LIBRARY_ADD_BOOK,
+  LIBRARY_REMOVE_BOOK,
   VIEW_SELECT_ALL,
   VIEW_SELECT_LOANED,
   VIEW_SELECT_READ,
@@ -12,6 +13,13 @@ export const addToLibrary = (book) => {
   return {
     type: LIBRARY_ADD_BOOK,
     payload: book,
+  };
+};
+
+export const removeFromLibrary = (bookTitle) => {
+  return {
+    type: LIBRARY_REMOVE_BOOK,
+    payload: bookTitle,
   };
 };
 
