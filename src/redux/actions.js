@@ -10,6 +10,8 @@ import {
 } from './constants';
 
 export const addToLibrary = (book) => {
+  localStorage.setItem('books', JSON.stringify(store.getState().library));
+
   return {
     type: LIBRARY_ADD_BOOK,
     payload: book,
