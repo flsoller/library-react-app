@@ -18,24 +18,9 @@ const useStyles = makeStyles({
 });
 
 //Component
-const ContentHolder = ({ books, setBooks, bookStorage, setBookStorage }) => {
+const ContentHolder = () => {
   // Material UI styles
   const classes = useStyles();
-
-  // Handle book deletion.
-  const handleDelete = (bookTitle) => {
-    // Delete book from bookStorage
-    const newBookStorage = [...bookStorage].filter((book) => {
-      return book.title !== bookTitle ? book : null;
-    });
-    setBookStorage(newBookStorage);
-
-    // Delete book from active View
-    const newBookView = [...books].filter((book) => {
-      return book.title !== bookTitle ? book : null;
-    });
-    setBooks(newBookView);
-  };
 
   // Load books from redux store
   const bookView = useSelector((state) => state.view);
@@ -50,27 +35,20 @@ const ContentHolder = ({ books, setBooks, bookStorage, setBookStorage }) => {
         isFav={book.isFav}
         isLoaned={book.isLoaned}
         isReading={book.isReading}
-        deleteBook={handleDelete}
       />
     </Grid>
   ));
 
   // Display default screen when no books in library.
   const noBooks = () => {
-    return books.length === 0 ? <EmptyDefault /> : null;
-  };
-
-  // Handle input from dialog
-  const handleInputDialog = (input) => {
-    setBooks([...books, input]);
-    setBookStorage([...bookStorage, input]);
+    return bookView.length === 0 ? <EmptyDefault /> : null;
   };
 
   //JSX
   return (
     <Grid container spacing={2} className={classes.topMargin}>
       <Grid container justify="center">
-        <AddBookModal handleInputDialog={handleInputDialog} />
+        <AddBookModal />
       </Grid>
       {noBooks()}
       {renderBooks}
