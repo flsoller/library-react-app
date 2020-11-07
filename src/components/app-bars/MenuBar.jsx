@@ -25,12 +25,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 // Component
-const MenuBar = ({
-  displayIsFav,
-  displayIsReading,
-  displayIsLoaned,
-  displayAllBooks,
-}) => {
+const MenuBar = () => {
   const classes = useStyles();
 
   const dispatch = useDispatch();
