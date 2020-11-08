@@ -1,3 +1,4 @@
+import { fromLocalStorage } from './helpers/localStorage';
 import {
   LIBRARY_ADD_BOOK,
   LIBRARY_REMOVE_BOOK,
@@ -7,15 +8,10 @@ import {
   VIEW_SELECT_FAV,
 } from './constants';
 
-// Get books from localStorage or empty array if false
-const fromLocalStorage = localStorage.getItem('books')
-  ? JSON.parse(localStorage.getItem('books'))
-  : [];
-
 // Define initial state
 const initialState = {
-  library: fromLocalStorage,
-  view: fromLocalStorage,
+  library: fromLocalStorage(),
+  view: fromLocalStorage(),
 };
 
 // Reducer for library state changes
