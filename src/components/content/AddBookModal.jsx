@@ -18,7 +18,7 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
-const AddBookModal = ({ handleInputDialog }) => {
+const AddBookModal = () => {
   // Redux dispatch
   const dispatch = useDispatch();
 
@@ -60,7 +60,6 @@ const AddBookModal = ({ handleInputDialog }) => {
     } else {
       handleClose();
       dispatch(addToLibrary(book));
-      handleInputDialog(book);
       setBook({
         title: '',
         author: '',
