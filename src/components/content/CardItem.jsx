@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { removeFromLibrary } from '../../redux/actions';
+import { removeFromLibrary, viewAllBooks } from '../../redux/actions';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -33,6 +33,11 @@ function CardItem({
   const classes = useStyles();
 
   const dispatch = useDispatch();
+
+  const deleteHandler = (bookTitle) => {
+    dispatch(removeFromLibrary(bookTitle));
+    dispatch(viewAllBooks());
+  };
   //JSX
   return (
     <Card variant="outlined">
@@ -63,7 +68,7 @@ function CardItem({
           color="secondary"
           variant="outlined"
           size="small"
-          onClick={() => dispatch(removeFromLibrary(bookTitle))}
+          onClick={() => deleteHandler(bookTitle)}
         >
           Delete
         </Button>
