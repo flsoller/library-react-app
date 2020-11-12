@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { removeFromLibrary, viewAllBooks } from '../../redux/actions';
+import { removeFromLibrary, removeFromView } from '../../redux/actions';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -36,7 +36,7 @@ function CardItem({
 
   const deleteHandler = (bookTitle) => {
     dispatch(removeFromLibrary(bookTitle));
-    dispatch(viewAllBooks());
+    dispatch(removeFromView(bookTitle));
   };
   //JSX
   return (

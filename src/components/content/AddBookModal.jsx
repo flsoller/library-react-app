@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 // Component imports
-import { addToLibrary, viewAllBooks } from '../../redux/actions';
+import { addToLibrary, addToView } from '../../redux/actions';
 
 // UI component imports
 import Button from '@material-ui/core/Button';
@@ -60,7 +60,7 @@ const AddBookModal = () => {
     } else {
       handleClose();
       dispatch(addToLibrary(book));
-      dispatch(viewAllBooks());
+      dispatch(addToView(book));
       setBook({
         title: '',
         author: '',

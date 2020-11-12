@@ -7,6 +7,8 @@ import {
   VIEW_SELECT_LOANED,
   VIEW_SELECT_READ,
   VIEW_SELECT_FAV,
+  VIEW_ADD_TO_CURRENT,
+  VIEW_REMOVE_FROM_CURRENT,
 } from './constants';
 
 export const addToLibrary = (book) => {
@@ -29,21 +31,38 @@ export const viewAllBooks = () => {
     payload: store.getState().library,
   };
 };
+
 export const viewLoanedBooks = () => {
   return {
     type: VIEW_SELECT_LOANED,
     payload: store.getState().library,
   };
 };
+
 export const viewReadBooks = () => {
   return {
     type: VIEW_SELECT_READ,
     payload: store.getState().library,
   };
 };
+
 export const viewFavBooks = () => {
   return {
     type: VIEW_SELECT_FAV,
     payload: store.getState().library,
+  };
+};
+
+export const addToView = (book) => {
+  return {
+    type: VIEW_ADD_TO_CURRENT,
+    payload: book,
+  };
+};
+
+export const removeFromView = (bookTitle) => {
+  return {
+    type: VIEW_REMOVE_FROM_CURRENT,
+    payload: bookTitle,
   };
 };
