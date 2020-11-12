@@ -6,6 +6,8 @@ import {
   VIEW_SELECT_LOANED,
   VIEW_SELECT_READ,
   VIEW_SELECT_FAV,
+  VIEW_ADD_TO_CURRENT,
+  VIEW_REMOVE_FROM_CURRENT,
 } from './constants';
 
 // Define initial state
@@ -53,6 +55,16 @@ export const viewReducer = (state = initialState.view, action) => {
     case VIEW_SELECT_READ:
       return library.filter((book) => {
         return book.isReading ? book : null;
+      });
+
+    case VIEW_ADD_TO_CURRENT:
+      const book = action.payload;
+      return [...state, book];
+
+    case VIEW_REMOVE_FROM_CURRENT:
+      const bookTitle = action.payload;
+      return [...state].filter((book) => {
+        return book.title !== bookTitle ? book : null;
       });
 
     default:
