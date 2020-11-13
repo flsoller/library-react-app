@@ -33,7 +33,7 @@ Todo:
 - [x] Open library by view
 - [x] Add functionality for deleting books
 - [x] Add support for localStorage
-- [ ] Implement state management with redux
+- [x] Implement state management with redux
 - [ ] Add ability to change read/fav/loaned status after creation
 
 ## Possible extensions:
