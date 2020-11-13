@@ -1,9 +1,12 @@
 // Card component for each book card.
 
-import React from 'react';
+// Component imports
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { removeFromLibrary, removeFromView } from '../../redux/actions';
+import CardEdit from './CardEdit';
 
+// Material UI imports
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -38,6 +41,15 @@ function CardItem({
     dispatch(removeFromLibrary(bookTitle));
     dispatch(removeFromView(bookTitle));
   };
+
+  // useState for managing edit state.
+  const [isEditing, setIsEditing] = useState(false);
+
+  // Handler for edits.
+  const editHandler = () => {
+    setIsEditing(false);
+  };
+
   //JSX
   return (
     <Card variant="outlined">
@@ -55,13 +67,17 @@ function CardItem({
         <Typography className={classes.pos} color="textSecondary">
           Pages: {bookPages}
         </Typography>
-        <Typography variant="body2" component="p">
-          Favourite: {isFav ? 'Yes' : 'No'}
-          <br />
-          Loaned Out: {isLoaned ? 'Yes' : 'No'}
-          <br />
-          Currently Reading: {isReading ? 'Yes' : 'No'}
-        </Typography>
+        {isEditing ? (
+          <CardEdit />
+        ) : (
+          <Typography variant="body2" component="p">
+            Favourite: {isFav ? 'Yes' : 'No'}
+            <br />
+            Loaned Out: {isLoaned ? 'Yes' : 'No'}
+            <br />
+            Currently Reading: {isReading ? 'Yes' : 'No'}
+          </Typography>
+        )}
       </CardContent>
       <CardActions>
         <Button
@@ -72,6 +88,25 @@ function CardItem({
         >
           Delete
         </Button>
+        {isEditing ? (
+          <Button
+            variant="outlined"
+            color="primary"
+            size="small"
+            onClick={() => editHandler()}
+          >
+            Save
+          </Button>
+        ) : (
+          <Button
+            variant="outlined"
+            color="primary"
+            size="small"
+            onClick={() => setIsEditing(true)}
+          >
+            Edit
+          </Button>
+        )}
       </CardActions>
     </Card>
   );
