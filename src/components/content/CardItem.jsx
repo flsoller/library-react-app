@@ -45,6 +45,13 @@ function CardItem({
   // useState for managing edit state.
   const [isEditing, setIsEditing] = useState(false);
 
+  // useState for keeping track of edits
+  const [editItems, setEditItems] = useState({
+    isFav: isFav,
+    isLoaned: isLoaned,
+    isReading: isReading,
+  });
+
   // Handler for edits.
   const editHandler = () => {
     setIsEditing(false);
@@ -68,7 +75,7 @@ function CardItem({
           Pages: {bookPages}
         </Typography>
         {isEditing ? (
-          <CardEdit />
+          <CardEdit editItems={editItems} setEditItems={setEditItems} />
         ) : (
           <Typography variant="body2" component="p">
             Favourite: {isFav ? 'Yes' : 'No'}
