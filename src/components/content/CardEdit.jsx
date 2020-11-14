@@ -4,15 +4,17 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Switch from '@material-ui/core/Switch';
 
-const CardEdit = () => {
-  const handleSwitch = (e) => {};
+const CardEdit = ({ editItems, setEditItems }) => {
+  const handleSwitch = (e) => {
+    setEditItems({ ...editItems, [e.target.name]: e.target.checked });
+  };
 
   return (
     <FormGroup row>
       <FormControlLabel
         control={
           <Switch
-            // checked={}
+            checked={editItems.isFav}
             onChange={handleSwitch}
             name="isFav"
             color="primary"
@@ -25,7 +27,7 @@ const CardEdit = () => {
       <FormControlLabel
         control={
           <Switch
-            // checked={}
+            checked={editItems.isLoaned}
             onChange={handleSwitch}
             name="isLoaned"
             color="primary"
@@ -38,7 +40,7 @@ const CardEdit = () => {
       <FormControlLabel
         control={
           <Switch
-            // checked={}
+            checked={editItems.isReading}
             onChange={handleSwitch}
             name="isReading"
             color="primary"
