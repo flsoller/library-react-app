@@ -2,6 +2,7 @@ import { fromLocalStorage } from './helpers/localStorage';
 import {
   LIBRARY_ADD_BOOK,
   LIBRARY_REMOVE_BOOK,
+  LIBRARY_UPDATE_BOOK,
   VIEW_SELECT_ALL,
   VIEW_SELECT_LOANED,
   VIEW_SELECT_READ,
@@ -28,6 +29,24 @@ export const libraryReducer = (state = initialState.library, action) => {
       return [...state].filter((book) => {
         return book.title !== bookTitle ? book : null;
       });
+
+    case LIBRARY_UPDATE_BOOK:
+      const key = action.payload.key;
+      const { isFav, isLoaned, isReading } = action.payload.editItems;
+
+      return [...state].map((book) => {
+        if (book.title === key) {
+          return {
+            ...book,
+            isFav: isFav,
+            isLoaned: isLoaned,
+            isReading: isReading,
+          };
+        } else {
+          return book;
+        }
+      });
+
     default:
       return state;
   }
