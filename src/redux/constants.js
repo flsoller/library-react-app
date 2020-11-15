@@ -1,6 +1,7 @@
 // Library related constants
 export const LIBRARY_ADD_BOOK = 'LIBRARY_ADD_BOOK';
 export const LIBRARY_REMOVE_BOOK = 'LIBRARY_REMOVE_BOOK';
+export const LIBRARY_UPDATE_BOOK = 'LIBRARY_UPDATE_BOOK';
 
 // Filtered view related constants
 export const VIEW_SELECT_ALL = 'VIEW_SELECT_ALL';

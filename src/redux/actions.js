@@ -3,6 +3,7 @@ import store from './store';
 import {
   LIBRARY_ADD_BOOK,
   LIBRARY_REMOVE_BOOK,
+  LIBRARY_UPDATE_BOOK,
   VIEW_SELECT_ALL,
   VIEW_SELECT_LOANED,
   VIEW_SELECT_READ,
@@ -64,5 +65,15 @@ export const removeFromView = (bookTitle) => {
   return {
     type: VIEW_REMOVE_FROM_CURRENT,
     payload: bookTitle,
+  };
+};
+
+export const updateBook = (bookTitle, editItems) => {
+  return {
+    type: LIBRARY_UPDATE_BOOK,
+    payload: {
+      key: bookTitle,
+      editItems: editItems,
+    },
   };
 };
