@@ -3,7 +3,11 @@
 // Component imports
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { removeFromLibrary, removeFromView } from '../../redux/actions';
+import {
+  removeFromLibrary,
+  removeFromView,
+  updateBook,
+} from '../../redux/actions';
 import CardEdit from './CardEdit';
 
 // Material UI imports
@@ -55,6 +59,7 @@ function CardItem({
   // Handler for edits.
   const editHandler = () => {
     setIsEditing(false);
+    dispatch(updateBook(bookTitle, editItems));
   };
 
   //JSX
