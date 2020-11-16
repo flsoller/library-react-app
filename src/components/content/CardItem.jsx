@@ -7,6 +7,7 @@ import {
   removeFromLibrary,
   removeFromView,
   updateBook,
+  updateView,
 } from '../../redux/actions';
 import CardEdit from './CardEdit';
 
@@ -60,6 +61,7 @@ function CardItem({
   const editHandler = () => {
     setIsEditing(false);
     dispatch(updateBook(bookTitle, editItems));
+    dispatch(updateView());
   };
 
   //JSX
