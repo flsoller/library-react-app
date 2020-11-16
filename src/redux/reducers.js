@@ -9,6 +9,7 @@ import {
   VIEW_SELECT_FAV,
   VIEW_ADD_TO_CURRENT,
   VIEW_REMOVE_FROM_CURRENT,
+  VIEW_UPDATE_CURRENT,
 } from './constants';
 
 // Define initial state
@@ -84,6 +85,18 @@ export const viewReducer = (state = initialState.view, action) => {
       const bookTitle = action.payload;
       return [...state].filter((book) => {
         return book.title !== bookTitle ? book : null;
+      });
+
+    // Update current view, needed to update view after edit (looking for a better way)
+    case VIEW_UPDATE_CURRENT:
+      const currentView = [...state];
+      // Compares arrays and returns new book if it exists in current view
+      const newValues = library.filter((bookNew) =>
+        currentView.some((bookOld) => bookNew.key === bookOld.key)
+      );
+      // Mapping through currentView and update each book with newValues
+      return [...state].map((book, index) => {
+        return newValues[index];
       });
 
     default:
