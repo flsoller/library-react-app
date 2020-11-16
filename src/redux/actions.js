@@ -10,6 +10,7 @@ import {
   VIEW_SELECT_FAV,
   VIEW_ADD_TO_CURRENT,
   VIEW_REMOVE_FROM_CURRENT,
+  VIEW_UPDATE_CURRENT,
 } from './constants';
 
 export const addToLibrary = (book) => {
@@ -75,5 +76,12 @@ export const updateBook = (bookTitle, editItems) => {
       key: bookTitle,
       editItems: editItems,
     },
+  };
+};
+
+export const updateView = () => {
+  return {
+    type: VIEW_UPDATE_CURRENT,
+    payload: store.getState().library,
   };
 };
