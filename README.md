@@ -34,7 +34,7 @@ Todo:
 - [x] Add functionality for deleting books
 - [x] Add support for localStorage
 - [x] Implement state management with redux
-- [ ] Add ability to change read/fav/loaned status after creation
+- [x] Add ability to change read/fav/loaned status after creation
 
 ## Possible extensions:
 
